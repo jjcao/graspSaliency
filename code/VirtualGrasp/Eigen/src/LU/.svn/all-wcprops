@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/LU
+END
+Determinant.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/LU/Determinant.h
+END
+Inverse.h
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/LU/Inverse.h
+END
+PartialPivLU.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/LU/PartialPivLU.h
+END
+FullPivLU.h
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/LU/FullPivLU.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/LU/CMakeLists.txt
+END

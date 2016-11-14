@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Householder
+END
+HouseholderSequence.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Householder/HouseholderSequence.h
+END
+BlockHouseholder.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Householder/BlockHouseholder.h
+END
+Householder.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Householder/Householder.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Householder/CMakeLists.txt
+END

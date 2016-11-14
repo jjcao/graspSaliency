@@ -93,12 +93,12 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PreprocessorDefinitions>UNICODE;WIN32;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_OPENGL_LIB;QT_WIDGETS_LIB;QT_XML_LIB;QT_XMLPATTERNS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(QGLViewer_DIR);.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtXmlPatterns;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Eigen;glew-2.0.0\include;GraphicsLibrary;ShapeAnalysis;Utility;$(QGLViewer_DIR);.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtOpenGL;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtXml;$(QTDIR)\include\QtXmlPatterns;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
     </ClCompile>
@@ -107,7 +107,7 @@
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>../lib/QGLViewerd2.lib;qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5OpenGLd.lib;opengl32.lib;glu32.lib;Qt5Widgetsd.lib;Qt5Xmld.lib;Qt5XmlPatternsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew-2.0.0\lib\Release\x64\glew32.lib;lib/QGLViewerd2.lib;qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5OpenGLd.lib;opengl32.lib;glu32.lib;Qt5Widgetsd.lib;Qt5Xmld.lib;Qt5XmlPatternsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -168,19 +168,57 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="GraphicsLibrary\BoundingBox.cpp" />
+    <ClCompile Include="GraphicsLibrary\Face.cpp" />
+    <ClCompile Include="GraphicsLibrary\Line.cpp" />
+    <ClCompile Include="GraphicsLibrary\Mesh.cpp" />
+    <ClCompile Include="GraphicsLibrary\Octree.cpp" />
+    <ClCompile Include="GraphicsLibrary\Plane.cpp" />
+    <ClCompile Include="GraphicsLibrary\Transform.cpp" />
+    <ClCompile Include="GraphicsLibrary\Triangle.cpp" />
+    <ClCompile Include="GraphicsLibrary\Umbrella.cpp" />
+    <ClCompile Include="GraphicsLibrary\VBO.cpp" />
+    <ClCompile Include="GraphicsLibrary\VertexDetail.cpp" />
+    <ClCompile Include="GraphicsLibrary\Voxeler.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="ShapeAnalysis\Agent\HumanHand.cpp" />
+    <ClCompile Include="ShapeAnalysis\Box.cpp" />
+    <ClCompile Include="ShapeAnalysis\IntersectionTest.cpp" />
+    <ClCompile Include="ShapeAnalysis\RigidPart.cpp" />
+    <ClCompile Include="ShapeAnalysis\rotationConstraint.cpp" />
+    <ClCompile Include="Utility\kdtree.cpp" />
+    <ClCompile Include="Utility\SimpleDraw.cpp" />
     <ClCompile Include="viewer.cpp" />
     <ClCompile Include="virtualgrasp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_virtualgrasp.h" />
+    <ClInclude Include="GraphicsLibrary\BoundingBox.h" />
+    <ClInclude Include="GraphicsLibrary\Color4.h" />
+    <ClInclude Include="GraphicsLibrary\Face.h" />
+    <ClInclude Include="GraphicsLibrary\Line.h" />
+    <ClInclude Include="GraphicsLibrary\Mesh.h" />
+    <ClInclude Include="GraphicsLibrary\Octree.h" />
+    <ClInclude Include="GraphicsLibrary\Plane.h" />
+    <ClInclude Include="GraphicsLibrary\Point.h" />
+    <ClInclude Include="GraphicsLibrary\Transform.h" />
+    <ClInclude Include="GraphicsLibrary\Triangle.h" />
+    <ClInclude Include="GraphicsLibrary\Umbrella.h" />
+    <ClInclude Include="GraphicsLibrary\VBO.h" />
+    <ClInclude Include="GraphicsLibrary\Vertex.h" />
+    <ClInclude Include="GraphicsLibrary\VertexDetail.h" />
+    <ClInclude Include="GraphicsLibrary\Voxel.h" />
+    <ClInclude Include="GraphicsLibrary\Voxeler.h" />
+    <ClInclude Include="ShapeAnalysis\Agent\HumanHand.h" />
+    <ClInclude Include="ShapeAnalysis\Box.h" />
+    <ClInclude Include="ShapeAnalysis\IntersectionTest.h" />
+    <ClInclude Include="ShapeAnalysis\RigidPart.h" />
+    <ClInclude Include="ShapeAnalysis\rotationConstraint.h" />
+    <ClInclude Include="ShapeAnalysis\Shape.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Utility\kdtree.h" />
+    <ClInclude Include="Utility\Macros.h" />
+    <ClInclude Include="Utility\SimpleDraw.h" />
     <ClInclude Include="viewer.h" />
     <CustomBuild Include="virtualgrasp.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
@@ -190,7 +228,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp" "-fstdafx.h" "-f../../virtualgrasp.h"  -DUNICODE -DWIN32 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_XMLPATTERNS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtXmlPatterns"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_XMLPATTERNS_LIB  "-I$(QGLViewer_DIR)\." "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtXmlPatterns" "-fstdafx.h" "-f../../virtualgrasp.h"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_XML_LIB -DQT_XMLPATTERNS_LIB  "-I.\Eigen" "-I.\glew-2.0.0\include" "-I.\GraphicsLibrary" "-I.\ShapeAnalysis" "-I.\Utility" "-I$(QGLViewer_DIR)\." "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets" "-I$(QTDIR)\include\QtXml" "-I$(QTDIR)\include\QtXmlPatterns"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing virtualgrasp.h...</Message>

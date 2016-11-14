@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse
+END
+CompressedStorage.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/CompressedStorage.h
+END
+SparseUtil.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseUtil.h
+END
+AmbiVector.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/AmbiVector.h
+END
+SparseTranspose.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseTranspose.h
+END
+SparseCwiseBinaryOp.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseCwiseBinaryOp.h
+END
+SparseDiagonalProduct.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseDiagonalProduct.h
+END
+SparseProduct.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseProduct.h
+END
+SparseAssign.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseAssign.h
+END
+TriangularSolver.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/TriangularSolver.h
+END
+SparseDot.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseDot.h
+END
+SparseRedux.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseRedux.h
+END
+SparseFuzzy.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseFuzzy.h
+END
+SparseCwiseUnaryOp.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseCwiseUnaryOp.h
+END
+SparseBlock.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseBlock.h
+END
+MappedSparseMatrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/MappedSparseMatrix.h
+END
+SparseSelfAdjointView.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseSelfAdjointView.h
+END
+SparseSparseProduct.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseSparseProduct.h
+END
+SparseMatrixBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseMatrixBase.h
+END
+SparseDenseProduct.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseDenseProduct.h
+END
+SparseVector.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseVector.h
+END
+SparseTriangularView.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseTriangularView.h
+END
+SparseMatrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseMatrix.h
+END
+CoreIterators.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/CoreIterators.h
+END
+DynamicSparseMatrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/DynamicSparseMatrix.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/CMakeLists.txt
+END
+SparseView.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Sparse/SparseView.h
+END

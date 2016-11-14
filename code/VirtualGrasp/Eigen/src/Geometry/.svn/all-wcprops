@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry
+END
+RotationBase.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/RotationBase.h
+END
+Translation.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/Translation.h
+END
+Umeyama.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/Umeyama.h
+END
+ParametrizedLine.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/ParametrizedLine.h
+END
+EulerAngles.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/EulerAngles.h
+END
+Hyperplane.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/Hyperplane.h
+END
+AngleAxis.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/AngleAxis.h
+END
+Transform.h
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/Transform.h
+END
+AlignedBox.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/AlignedBox.h
+END
+OrthoMethods.h
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/OrthoMethods.h
+END
+Scaling.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/Scaling.h
+END
+Quaternion.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/Quaternion.h
+END
+Rotation2D.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/Rotation2D.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/CMakeLists.txt
+END
+Homogeneous.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/Geometry/Homogeneous.h
+END

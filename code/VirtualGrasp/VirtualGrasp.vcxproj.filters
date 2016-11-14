@@ -33,14 +33,20 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
-    <Filter Include="GUI">
+    <Filter Include="ShapeAnalysis">
       <UniqueIdentifier>{535b6c09-9ba4-4b7d-bf21-75d358b53853}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ShapeAnalysis\Agent">
+      <UniqueIdentifier>{d539736c-ffa0-4108-8bf7-b4ea9037af2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utility">
+      <UniqueIdentifier>{bbe7fa0e-0757-47a0-9587-8cbe0e27711c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GraphicsLibrary">
+      <UniqueIdentifier>{310d9336-373d-40b4-87b3-90c4f96d9b03}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -59,6 +65,63 @@
     <ClCompile Include="viewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ShapeAnalysis\RigidPart.cpp">
+      <Filter>ShapeAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeAnalysis\Agent\HumanHand.cpp">
+      <Filter>ShapeAnalysis\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeAnalysis\Box.cpp">
+      <Filter>ShapeAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeAnalysis\rotationConstraint.cpp">
+      <Filter>ShapeAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\kdtree.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="Utility\SimpleDraw.cpp">
+      <Filter>utility</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\Mesh.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\Face.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\VertexDetail.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\Octree.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\Plane.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\Transform.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\Triangle.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\Umbrella.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\VBO.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\Voxeler.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\BoundingBox.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsLibrary\Line.cpp">
+      <Filter>GraphicsLibrary</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeAnalysis\IntersectionTest.cpp">
+      <Filter>ShapeAnalysis</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -69,6 +132,81 @@
     </ClInclude>
     <ClInclude Include="viewer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\RigidPart.h">
+      <Filter>ShapeAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\Agent\HumanHand.h">
+      <Filter>ShapeAnalysis\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\Box.h">
+      <Filter>ShapeAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\rotationConstraint.h">
+      <Filter>ShapeAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\Shape.h">
+      <Filter>ShapeAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\kdtree.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\SimpleDraw.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Mesh.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Color4.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility\Macros.h">
+      <Filter>utility</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Face.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Vertex.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\VertexDetail.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Octree.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Plane.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Point.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Transform.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Triangle.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Umbrella.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\VBO.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Voxel.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Voxeler.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\BoundingBox.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsLibrary\Line.h">
+      <Filter>GraphicsLibrary</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\IntersectionTest.h">
+      <Filter>ShapeAnalysis</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

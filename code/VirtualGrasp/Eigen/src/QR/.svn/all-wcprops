@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/QR
+END
+ColPivHouseholderQR.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/QR/ColPivHouseholderQR.h
+END
+HouseholderQR.h
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/QR/HouseholderQR.h
+END
+FullPivHouseholderQR.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/QR/FullPivHouseholderQR.h
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/projects/haoz_papers/!svn/ver/6615/indirect_sa/Code/ISA/Eigen/src/QR/CMakeLists.txt
+END
