@@ -47,7 +47,7 @@ HumanBody::HumanBody( double humanHeight /*= 171.6*/, double humanWidth /*= 35.2
 
 void HumanBody::draw()
 {
-	drawBranches();
+	//drawBranches();
 
 	// Regular drawing of children
 	RigidPart::draw();

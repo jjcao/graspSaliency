@@ -181,7 +181,11 @@
     <ClCompile Include="GraphicsLibrary\VertexDetail.cpp" />
     <ClCompile Include="GraphicsLibrary\Voxeler.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ShapeAnalysis\Agent\HumanArm.cpp" />
+    <ClCompile Include="ShapeAnalysis\Agent\HumanBody.cpp" />
     <ClCompile Include="ShapeAnalysis\Agent\HumanHand.cpp" />
+    <ClCompile Include="ShapeAnalysis\Agent\HumanLeg.cpp" />
+    <ClCompile Include="ShapeAnalysis\Agent\HumanTorso.cpp" />
     <ClCompile Include="ShapeAnalysis\Box.cpp" />
     <ClCompile Include="ShapeAnalysis\IntersectionTest.cpp" />
     <ClCompile Include="ShapeAnalysis\RigidPart.cpp" />
@@ -209,7 +213,11 @@
     <ClInclude Include="GraphicsLibrary\VertexDetail.h" />
     <ClInclude Include="GraphicsLibrary\Voxel.h" />
     <ClInclude Include="GraphicsLibrary\Voxeler.h" />
+    <ClInclude Include="ShapeAnalysis\Agent\HumanArm.h" />
+    <ClInclude Include="ShapeAnalysis\Agent\HumanBody.h" />
     <ClInclude Include="ShapeAnalysis\Agent\HumanHand.h" />
+    <ClInclude Include="ShapeAnalysis\Agent\HumanLeg.h" />
+    <ClInclude Include="ShapeAnalysis\Agent\HumanTorso.h" />
     <ClInclude Include="ShapeAnalysis\Box.h" />
     <ClInclude Include="ShapeAnalysis\IntersectionTest.h" />
     <ClInclude Include="ShapeAnalysis\RigidPart.h" />

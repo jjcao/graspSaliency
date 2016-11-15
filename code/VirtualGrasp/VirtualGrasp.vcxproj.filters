@@ -122,6 +122,18 @@
     <ClCompile Include="ShapeAnalysis\IntersectionTest.cpp">
       <Filter>ShapeAnalysis</Filter>
     </ClCompile>
+    <ClCompile Include="ShapeAnalysis\Agent\HumanArm.cpp">
+      <Filter>ShapeAnalysis\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeAnalysis\Agent\HumanBody.cpp">
+      <Filter>ShapeAnalysis\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeAnalysis\Agent\HumanLeg.cpp">
+      <Filter>ShapeAnalysis\Agent</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeAnalysis\Agent\HumanTorso.cpp">
+      <Filter>ShapeAnalysis\Agent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -207,6 +219,18 @@
     </ClInclude>
     <ClInclude Include="ShapeAnalysis\IntersectionTest.h">
       <Filter>ShapeAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\Agent\HumanArm.h">
+      <Filter>ShapeAnalysis\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\Agent\HumanBody.h">
+      <Filter>ShapeAnalysis\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\Agent\HumanLeg.h">
+      <Filter>ShapeAnalysis\Agent</Filter>
+    </ClInclude>
+    <ClInclude Include="ShapeAnalysis\Agent\HumanTorso.h">
+      <Filter>ShapeAnalysis\Agent</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

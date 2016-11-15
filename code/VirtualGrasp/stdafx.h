@@ -10,6 +10,9 @@
 #include "ShapeAnalysis/Agent/HumanHand.h"
 extern HumanHand * hand;
 
+#include "ShapeAnalysis/Agent/HumanBody.h"
+extern HumanBody * actor;
+
 // Our classes
 //#include "Mesh.h"
 //extern QMap <QString, Mesh *> meshes;

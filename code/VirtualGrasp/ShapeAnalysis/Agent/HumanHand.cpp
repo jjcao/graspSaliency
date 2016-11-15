@@ -119,10 +119,11 @@ void HumanHand::init( double scale /*= 1.0*/, double handLength /*= 19.41*/, dou
 	DIP[3].setMin(-30);
 
 	// Create palm
-	//double palmLength = HL * 0.6; // approx.
-	//double palmWidth = HB;
+	double palmLength = HL * 0.6; // approx.
+	double palmWidth = HB;
 
-	this->shape = new Box(fingerThick, fingerWidth,  fingerWidth);
+	//this->shape = new Box(fingerThick, fingerWidth,  fingerWidth);//jjcao
+	this->shape = new Box(fingerThick,  palmWidth,  palmLength);
 	this->parent = parent;
 
 	if(name.size() < 1)
@@ -172,7 +173,7 @@ void HumanHand::init( double scale /*= 1.0*/, double handLength /*= 19.41*/, dou
 	// Center of the palm, help with the grabbing
 	//this->palmCenter = Vec();
 
-	color = Color4(255,0,0);
+	color = Color4(255,0,0, 125);
 	setChildrenColor(Color4(255,255,0));
 	
 	updateMatrix();
@@ -188,9 +189,10 @@ void HumanHand::setupThumb()
 	thumb[1] = new Box(fingerThick, fingerWidth, 0.196 * HL);
 	thumb[2] = new Box(fingerThick, fingerWidth, 0.158 * HL);
 
-	// Metacarpal (CMC)
+	// Metacarpal (CMC)	
 	addChild(thumb[0], name.left(1) + QString("-Metacarpal-Thumb"));
-	RigidPart * part = child[fingCount];
+	//RigidPart * part = child[fingCount]; //jjcao
+	RigidPart * part = child.back();
 	part->tranlsateAnchor(Vec(0, -0.1 * HB, 0.1 * HL));
 	part->rot.setRangeX(AngleRange(-60,-30));	// Flex
 	part->rot.setRangeY(AngleRange(0,60));	// Abduction

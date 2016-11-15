@@ -130,7 +130,7 @@ void RigidPart::draw()
 	updateMatrix();
 
 	glPushMatrix();
-	glMultMatrixd((const double*) mat.data());
+	glMultMatrixf(mat.constData());
 
 	// DEBUG: draw axis
 	glColor4f(0,0,1.0f, 1);

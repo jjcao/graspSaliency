@@ -25,7 +25,8 @@ static const int boxIndex[][3]={
 
 void Box::draw( const Color4 & color )
 {
-	SimpleDraw::DrawSolidBox(Vec(0,0,z * 0.5), x, y, z, color.r(), color.g(), color.b(), color.a());
+	SimpleDraw::DrawSolidBox(Vec(0, 0, z * 0.5), x, y, z, color.r(), color.g(), color.b(), color.a());//original 
+	//SimpleDraw::DrawSolidBox(Vec(x * 0.5, y * 0.5, z * 0.5), x, y, z, color.r(), color.g(), color.b(), color.a());//jjcao
 }
 
 bool Box::isIntersects( const QMatrix4x4 & mat, Mesh * mesh )

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "viewer.h"
-
+#include <QKeyEvent>
 using namespace std;
 
 Viewer::Viewer(QWidget *parent) : QGLViewer(parent)
@@ -10,37 +10,91 @@ Viewer::Viewer(QWidget *parent) : QGLViewer(parent)
 // Draws a spiral
 void Viewer::draw()
 {
-	const float nbSteps = 200.0;
+	// Ambient light
+	GLfloat ambientLight[] = { 0.15f, 0.15f, 0.15f, 1.0f };
+	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientLight);
 
-	glBegin(GL_QUAD_STRIP);
-	for (int i = 0; i<nbSteps; ++i)
-	{
-		const float ratio = i / nbSteps;
-		const float angle = 21.0*ratio;
-		const float c = cos(angle);
-		const float s = sin(angle);
-		const float r1 = 1.0 - 0.8f*ratio;
-		const float r2 = 0.8f - 0.8f*ratio;
-		const float alt = ratio - 0.5f;
-		const float nor = 0.5f;
-		const float up = sqrt(1.0 - nor*nor);
-		glColor3f(1.0 - ratio, 0.2f, ratio);
-		glNormal3f(nor*c, up, nor*s);
-		glVertex3f(r1*c, alt, r1*s);
-		glVertex3f(r2*c, alt + 0.05f, r2*s);
-	}
-	glEnd();
+	this->setBackgroundColor(backColor);
+
+	// Anti-aliasing
+	glEnable(GL_MULTISAMPLE);	
+
+	if (hand != NULL && hand->ready())
+	{		
+		hand->drawBranches();
+		//hand->draw();
+	}	
 }
 
 void Viewer::init()
 {
 	// Restore previous viewer state.
 	restoreStateFromFile();
-
 	// Opens help window
 	help();
+
+	GLfloat lightColor[] = { 0.9f, 0.9f, 0.9f, 1.0f };
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightColor);
+
+	// Material
+	//float no_mat[] = {0.0f, 0.0f, 0.0f, 1.0f};
+	//float mat_ambient_color[] = {0.25f, 0.25f, 0.25f, 1.0f};
+	float mat_ambient[] = { 0.1745f, 0.01175f, 0.01175f, 1.0f };
+	float mat_diffuse[] = { 0.65f, 0.045f, 0.045f, 1.0f };
+	float mat_specular[] = { 0.09f, 0.09f, 0.09f, 1.0f };
+	float high_shininess = 100;
+
+	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialf(GL_FRONT, GL_SHININESS, high_shininess);
+
+	this->setBackgroundColor(backColor = QColor(255, 255, 255));
+
+	this->viewMode = VIEW;
+	this->selectMode = NONE;
+	this->modifyMode = DEFAULT;
+
+	mouseAltPressed = false;
+
+	// Default camera
+	//if (actor != NULL)
+	//{
+	//	setSceneCenter(actor->getCenter());
+	//	setSceneRadius(actor->height*1.2);
+	//}
+	if (hand != NULL)
+	{
+		setSceneCenter(hand->getCenter());
+		setSceneRadius(hand->getHandLength()*1.2);
+	}
+	else
+	{
+		setSceneCenter(Vec());
+	}
+	
+	camera()->showEntireScene();
+	//setSceneRadius(80);
+	update();
 }
 
+void Viewer::keyPressEvent(QKeyEvent *e)
+{
+	// open and close hand
+	if (e->key() == Qt::Key_BracketLeft)
+	{
+		hand->openAll(-10.0, true);
+	}
+	if (e->key() == Qt::Key_BracketRight)
+	{
+		hand->openAll(10.0, true);
+	}
+
+	updateGL();
+
+	// Regular behavior
+	QGLViewer::keyPressEvent(e);
+}
 QString Viewer::helpString() const
 {
 	QString text("<h2>S i m p l e V i e w e r</h2>");
