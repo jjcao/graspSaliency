@@ -3,8 +3,8 @@
 #include <QtWidgets/QApplication>
 
 HumanHand * hand;
-#include "ShapeAnalysis/Agent/HumanBody.h"
-HumanBody * actor;
+//HumanBody * actor;
+Mesh * mesh;
 
 double Epsilon = 1.0e-6f;
 
@@ -23,8 +23,9 @@ int main(int argc, char *argv[])
 	// Shape analysis:
 	hand = new HumanHand;
 	hand->init();
-
 	//actor = new HumanBody;
+
+	mesh = NULL;
 
 	VirtualGrasp w;
 	w.show();

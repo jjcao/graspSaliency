@@ -89,7 +89,18 @@ void Viewer::keyPressEvent(QKeyEvent *e)
 	{
 		hand->openAll(10.0, true);
 	}
+	if (e->key() == Qt::Key_L)
+	{
+		if (mesh)
+		{
+			delete mesh; mesh = NULL;
+		}
+		else
+		{
 
+		}
+	}
+	
 	updateGL();
 
 	// Regular behavior
