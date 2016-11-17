@@ -4,8 +4,6 @@
 
 #include "Macros.h"
 
-
-
 // Shape Analysis
 #include "ShapeAnalysis/Agent/HumanHand.h"
 extern HumanHand * hand;
@@ -16,3 +14,7 @@ extern HumanHand * hand;
 // Our classes
 #include "Mesh.h"
 extern Mesh * mesh;
+
+// UI classes
+#include "virtualgrasp.h"
+extern VirtualGrasp * mainWindow;

@@ -1,10 +1,13 @@
 #include "stdafx.h"
 #include "virtualgrasp.h"
 #include <QtWidgets/QApplication>
+#include "Viewer.h"
+#include "Commander.h"
 
 HumanHand * hand;
 //HumanBody * actor;
 Mesh * mesh;
+VirtualGrasp * mainWindow;
 
 double Epsilon = 1.0e-6f;
 
@@ -29,6 +32,10 @@ int main(int argc, char *argv[])
 
 	VirtualGrasp w;
 	w.show();
+
+	// Pointers to expose to the entire world!
+	mainWindow = &w;
+	mainWindow->ui.commander->viewer = mainWindow->ui.viewer;
 
 	return a.exec();
 }

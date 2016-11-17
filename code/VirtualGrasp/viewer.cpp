@@ -24,6 +24,12 @@ void Viewer::draw()
 		hand->drawBranches();
 		//hand->draw();
 	}	
+
+	if (mesh)
+	{
+		mesh->draw();
+		//if (mesh->octree) mesh->octree->draw(0, .8, .5);
+	}
 }
 
 void Viewer::init()
@@ -91,14 +97,7 @@ void Viewer::keyPressEvent(QKeyEvent *e)
 	}
 	if (e->key() == Qt::Key_L)
 	{
-		if (mesh)
-		{
-			delete mesh; mesh = NULL;
-		}
-		else
-		{
-
-		}
+		mainWindow->ui.commander->OpenMesh("");
 	}
 	
 	updateGL();

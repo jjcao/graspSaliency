@@ -19,7 +19,7 @@
      <widget class="Viewer" name="viewer" native="true"/>
     </item>
     <item>
-     <widget class="QWidget" name="widget" native="true"/>
+     <widget class="Commander" name="commander" native="true"/>
     </item>
    </layout>
   </widget>
@@ -49,6 +49,12 @@
    <class>Viewer</class>
    <extends>QWidget</extends>
    <header location="global">viewer.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Commander</class>
+   <extends>QWidget</extends>
+   <header location="global">commander.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

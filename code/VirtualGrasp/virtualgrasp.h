@@ -13,7 +13,7 @@ public:
 	VirtualGrasp(QWidget *parent = 0);
 	~VirtualGrasp();
 
-private:
+//private:
 	Ui::VirtualGraspClass ui;
 };
 
