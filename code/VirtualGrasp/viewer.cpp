@@ -190,6 +190,8 @@ void Viewer::mouseMoveEvent(QMouseEvent* e)
 			hand->openAll(closeIt);
 			hand->openUntilNonCollide(mesh);
 			hand->closeUntilCollide(mesh);
+			
+			saWidget->colorMesh(hand->intersectWithMesh(mesh));
 		}
 	}
 
