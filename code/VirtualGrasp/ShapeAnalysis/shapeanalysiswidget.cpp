@@ -1,4 +1,4 @@
-#include "isa_headers.h"
+#include "stdafx.h"
 #include "shapeanalysiswidget.h"
 #include "IntersectionTest.h"
 #include "util.h"
@@ -27,19 +27,51 @@ ShapeAnalysisWidget::ShapeAnalysisWidget(QWidget *parent) : QWidget(parent)
 	scaleLayout = new QGridLayout;
 	experimentLayout = new QGridLayout;
 
-	// Buttons
-	showHand = new QPushButton("Show Hand!");
-	closeHand = new QPushButton("Close Hand!");
-	openHand = new QPushButton("Open Hand!");
+	// Interactions Frame
+	showHand = new QPushButton("Show");
+	showSkin = new QPushButton("Skin");
+	closeHand = new QPushButton("Close");
+	openHand = new QPushButton("Open");
 	grabObj = new QPushButton("Grab");
+	ungrabObj = new QPushButton("UnGrab");
+
+	int row = 0;
+	interactionsLayout->addWidget(new QLabel("Hand:"), row++, 0, 1, 4);
+
+	interactionsLayout->addWidget(showHand, row, 0, 1, 2);
+	interactionsLayout->addWidget(showSkin, row++, 2, 1, 2);
+	interactionsLayout->addWidget(openHand, row, 0);
+	interactionsLayout->addWidget(closeHand, row, 1);
+	interactionsLayout->addWidget(grabObj, row, 2);
+	interactionsLayout->addWidget(ungrabObj, row, 3);
+
+	interactionsFrame->setFrameStyle(QFrame::StyledPanel);
+	interactionsFrame->setLayout(interactionsLayout);
+	layout->addWidget(interactionsFrame);
+
+
+	// Scale Frame
+	setMeshScale = new QPushButton("Set");
+	meshScale = new QDoubleSpinBox;
+	row = 0;
+	scaleLayout->addWidget(new QLabel("Scale:"), row++, 0, 1, 3);
+
+	scaleLayout->addWidget(new QLabel("Mesh scale:"), row, 0);
+	scaleLayout->addWidget(meshScale, row, 1);
+	scaleLayout->addWidget(setMeshScale, row++, 2);
+
+	scaleFrame->setFrameStyle(QFrame::StyledPanel);
+	scaleFrame->setLayout(scaleLayout);
+	layout->addWidget(scaleFrame);
+
+
+	// Experiment Frame
 	randomPos = new QPushButton("Random Pos");
 	startSamp = new QPushButton("Start");
-	setMeshScale = new QPushButton("Set");
 	exportSelected = new QPushButton("Export selected");
 
 	// Spin box
-	numSamples = new QSpinBox;
-	meshScale = new QDoubleSpinBox;
+	numSamples = new QSpinBox;	
 	thresholdDist = new QDoubleSpinBox;
 	angleStep = new QDoubleSpinBox;
 
@@ -63,34 +95,7 @@ ShapeAnalysisWidget::ShapeAnalysisWidget(QWidget *parent) : QWidget(parent)
 	hbox->addStretch();
 	featureSpaceGroupBox->setLayout(hbox);
 
-	// Interactions Frame
-	int row = 0;
-	interactionsLayout->addWidget(new QLabel("Interactions:"), row++, 0, 1, 3);
 
-	interactionsLayout->addWidget(showHand, row++, 0,1,3);
-	interactionsLayout->addWidget(openHand, row, 0);
-	interactionsLayout->addWidget(closeHand, row, 1);
-	interactionsLayout->addWidget(grabObj, row, 2);
-
-	interactionsFrame->setFrameStyle(QFrame::StyledPanel);
-	interactionsFrame->setLayout(interactionsLayout);
-	layout->addWidget(interactionsFrame);
-
-
-	// Scale Frame
-	row = 0;
-	scaleLayout->addWidget(new QLabel("Scale:"), row++, 0, 1, 3);
-
-	scaleLayout->addWidget(new QLabel("Mesh scale:"), row, 0);
-	scaleLayout->addWidget(meshScale, row, 1);
-	scaleLayout->addWidget(setMeshScale, row++, 2);
-
-	scaleFrame->setFrameStyle(QFrame::StyledPanel);
-	scaleFrame->setLayout(scaleLayout);
-	layout->addWidget(scaleFrame);
-
-
-	// Experiment Frame
 	experimentLayout->addWidget(new QLabel("Experiments:"), row++, 0, 1, 3);
 	experimentLayout->addWidget(saveSnapshots, row++, 0, 1, 3);
 	experimentLayout->addWidget(outputSamplesFile, row++, 0, 1, 3);
@@ -114,18 +119,16 @@ ShapeAnalysisWidget::ShapeAnalysisWidget(QWidget *parent) : QWidget(parent)
 	experimentFrame->setLayout(experimentLayout);
 	layout->addWidget(experimentFrame);
 
-	// Rigid parts exploration
-	rpw = new RigidPartWidget(NULL);
-	layout->addWidget(rpw);
-
 	layout->addStretch(); // empty space to end
 
 	this->setLayout(layout);
 
 	connect(showHand, SIGNAL(clicked()), SLOT(showHandClicked()));
+	connect(showSkin, SIGNAL(clicked()), SLOT(showHandSkinClicked()));	
 	connect(closeHand, SIGNAL(clicked()), SLOT(closeHandClicked()));
 	connect(openHand, SIGNAL(clicked()), SLOT(openHandClicked()));
 	connect(grabObj, SIGNAL(clicked()), SLOT(closeTillCollide()));
+	connect(ungrabObj, SIGNAL(clicked()), SLOT(openAll()));
 	connect(setMeshScale, SIGNAL(clicked()), SLOT(meshScaleChanged()));
 	connect(randomPos, SIGNAL(clicked()), SLOT(randomPosClicked()));
 	connect(exportSelected, SIGNAL(clicked()), SLOT(exportObservations()));
@@ -136,8 +139,6 @@ ShapeAnalysisWidget::ShapeAnalysisWidget(QWidget *parent) : QWidget(parent)
 	// OpenGL update
 	mainWindow->ui.viewer->connect(startSamp, SIGNAL(clicked()), SLOT(update()));
 
-	// get pointer to loaded mesh
-	mesh = getMesh("LoadedMesh");
 
 	// Default values
 	numSamples->setRange(1, INT_MAX);
@@ -154,6 +155,24 @@ ShapeAnalysisWidget::ShapeAnalysisWidget(QWidget *parent) : QWidget(parent)
 	angleStep->setValue(defaultAngleStep);
 
 	isExperimentRunning = false;
+}
+void ShapeAnalysisWidget::meshScaleChanged()
+{
+	double newScale = meshScale->value();
+
+	mesh->normalize_scale = newScale;
+	mesh->normalizeScale();
+	mesh->rebuildOctree();
+
+	// Update view
+	mainWindow->ui.viewer->update();
+	mainWindow->ui.viewer->updateGL();
+}
+
+
+void ShapeAnalysisWidget::angleStepChanged(double newStep)
+{
+	defaultAngleStep = newStep;
 }
 
 void ShapeAnalysisWidget::closeHandClicked()
@@ -176,16 +195,14 @@ void ShapeAnalysisWidget::openHandClicked()
 
 void ShapeAnalysisWidget::showHandClicked()
 {
-	// Create hand
-	hand = new HumanHand();
-	hand->init();
-	hand->openAll();
-
-	// Movable hand
-	agentManipulator = new ManipulatedFrame();
-	mainWindow->ui.viewer->setManipulatedFrame(agentManipulator);
+	hand->isReady = !hand->isReady;
+	mainWindow->ui.viewer->update();
 }
-
+void ShapeAnalysisWidget::showHandSkinClicked()
+{
+	hand->isShowShape = !hand->isShowShape;
+	mainWindow->ui.viewer->update();
+}
 void ShapeAnalysisWidget::colorMesh(bool intersect)
 {
 	if(intersect)
@@ -193,6 +210,13 @@ void ShapeAnalysisWidget::colorMesh(bool intersect)
 	else
 		mesh->setColor(0,255,0);
 
+	mainWindow->ui.viewer->update();
+}
+void ShapeAnalysisWidget::openAll()
+{
+	if (hand) hand->openAll();
+
+	if (mesh) mesh->setColor(0, 255, 0);
 	mainWindow->ui.viewer->update();
 }
 
@@ -208,115 +232,9 @@ void ShapeAnalysisWidget::closeTillCollide()
 
 void ShapeAnalysisWidget::randomPosClicked()
 {
-	sampleMesh(1);
 }
 
 void ShapeAnalysisWidget::sampleMeshButtonClicked()
 {
-	obs->clear();
-
-	sampleMesh(numSamples->value());
 }
 
-void ShapeAnalysisWidget::sampleMesh(int n)
-{
-	mainWindow->ui.viewer->print("Sampling..", 3000);
-
-	if(hand && !hand->ready()) return;
-
-	hand->isReady = false;
-	hand = NULL;
-
-	QString fileName;
-
-	if(outputSamplesFile->isChecked())
-		fileName = QFileDialog::getSaveFileName(this, tr("Save Experiment"), "", 
-			tr("Experiment File (*.exp)"));
-	
-	// Viewer connections
-	mainWindow->ui.viewer->connect(e, SIGNAL(saveSnapshot()), SLOT(updateAndSnapshot()), Qt::BlockingQueuedConnection);
-	mainWindow->ui.viewer->connect(this, SIGNAL(updateViewer()), SLOT(updateGL()));
-
-	// Feature space decision
-	FeatureSpace space = ANGLE;
-	if(featureAngle->isChecked()) space = ANGLE;
-	if(featureDist->isChecked()) space = DISTANCE_JOINTS_ALL;
-
-	// Perform experiment
-	e->init(mesh, n, thresholdDist->value(), saveSnapshots->isChecked(), fileName, space);
-
-	if(s != NULL) e->sampler = s;
-
-	e->start();
-
-	this->connect(e, SIGNAL(addObservation()), SLOT(addObservation()), Qt::BlockingQueuedConnection);
-	this->connect(obs, SIGNAL(itemSelectionChanged()), SLOT(readObservation()));
-	this->connect(e, SIGNAL(finished()), SLOT(selectFirstObs()));
-}
-
-void ShapeAnalysisWidget::meshScaleChanged()
-{
-	double newScale = meshScale->value();
-
-	mesh->normalize_scale = newScale;
-	mesh->normalizeScale();
-	mesh->rebuildOctree();
-
-	// Update view
-	mainWindow->ui.viewer->update();
-	mainWindow->ui.viewer->updateGL();
-}
-
-void ShapeAnalysisWidget::addObservation()
-{
-	//QString text = QString("%1 - %2").arg(weight).arg(obs->count());
-	QString text = QString::number(obs->count());
-
-	QListWidgetItem* item = new QListWidgetItem(text);
-	item->setCheckState(Qt::Unchecked);
-
-	obs->addItem(item);
-}
-
-void ShapeAnalysisWidget::readObservation()
-{
-	int i = RANGED(0, (int)obs->row(obs->currentItem()), (int)e->obs.size() - 1);
-
-	hand = e->obs[i]->hand;
-
-	agentManipulator->setFromMatrix( (const double*) hand->mat.data());
-
-	emit updateViewer();
-}
-
-void ShapeAnalysisWidget::exportObservations()
-{
-	QString fileName = QFileDialog::getSaveFileName(this, tr("Save Experiment"), "", 
-		tr("Index File (*.txt)"));
-	
-	ofstream file;
-
-	file.open(fileName.toStdString().c_str());
-
-	// Output the checked indices
-	for(int row = 0; row < obs->count(); row++)
-	{
-		if(obs->item(row)->checkState() == Qt::Checked)
-			file << row << endl;
-	}
-
-	file.close();
-}
-
-void ShapeAnalysisWidget::selectFirstObs()
-{
-	obs->setCurrentItem( obs->itemAt(0,0) );
-
-	// Display timing on viewer
-	mainWindow->ui.viewer->print(QString("Experiment time = %1 ms").arg(e->totalTime.time), 1000);
-}
-
-void ShapeAnalysisWidget::angleStepChanged(double newStep)
-{
-	defaultAngleStep = newStep;
-}

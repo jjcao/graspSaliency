@@ -4,10 +4,12 @@
 #include "Viewer.h"
 #include "Commander.h"
 
-HumanHand * hand;
-//HumanBody * actor;
-Mesh * mesh;
-VirtualGrasp * mainWindow;
+HumanHand * hand = NULL;
+ManipulatedFrame * agentManipulator = NULL;
+//HumanBody * actor = NULL;
+Mesh * mesh = NULL;
+VirtualGrasp * mainWindow = NULL;
+ShapeAnalysisWidget * saWidget = NULL;
 
 double Epsilon = 1.0e-6f;
 
@@ -26,6 +28,8 @@ int main(int argc, char *argv[])
 	// Shape analysis:
 	hand = new HumanHand;
 	hand->init();
+	// Movable hand
+	agentManipulator = new ManipulatedFrame();
 	//actor = new HumanBody;
 
 	mesh = NULL;
@@ -36,6 +40,7 @@ int main(int argc, char *argv[])
 	// Pointers to expose to the entire world!
 	mainWindow = &w;
 	mainWindow->ui.commander->viewer = mainWindow->ui.viewer;
+	mainWindow->ui.viewer->setManipulatedFrame(agentManipulator);	
 
 	return a.exec();
 }

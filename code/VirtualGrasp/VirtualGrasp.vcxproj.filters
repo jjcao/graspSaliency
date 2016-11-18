@@ -45,6 +45,9 @@
     <Filter Include="GraphicsLibrary">
       <UniqueIdentifier>{310d9336-373d-40b4-87b3-90c4f96d9b03}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GUI">
+      <UniqueIdentifier>{1130eb17-a381-4742-bc6b-c1e97b5871fd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -61,9 +64,6 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_virtualgrasp.cpp">
       <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="viewer.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ShapeAnalysis\RigidPart.cpp">
       <Filter>ShapeAnalysis</Filter>
@@ -134,14 +134,35 @@
     <ClCompile Include="ShapeAnalysis\Agent\HumanTorso.cpp">
       <Filter>ShapeAnalysis\Agent</Filter>
     </ClCompile>
-    <ClCompile Include="commander.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_commander.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_commander.cpp">
       <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SideBar.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SideBar.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_shapeanalysiswidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_shapeanalysiswidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="ShapeAnalysis\shapeanalysiswidget.cpp">
+      <Filter>ShapeAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="commander.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="SideBar.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="viewer.cpp">
+      <Filter>GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -150,9 +171,6 @@
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_virtualgrasp.h">
       <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="viewer.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ShapeAnalysis\RigidPart.h">
       <Filter>ShapeAnalysis</Filter>
@@ -241,6 +259,9 @@
     <ClInclude Include="ShapeAnalysis\Agent\HumanTorso.h">
       <Filter>ShapeAnalysis\Agent</Filter>
     </ClInclude>
+    <ClInclude Include="viewer.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="virtualgrasp.h">
@@ -252,8 +273,14 @@
     <CustomBuild Include="virtualgrasp.qrc">
       <Filter>Resource Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="ShapeAnalysis\shapeanalysiswidget.h">
+      <Filter>ShapeAnalysis</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SideBar.h">
+      <Filter>GUI</Filter>
+    </CustomBuild>
     <CustomBuild Include="commander.h">
-      <Filter>Header Files</Filter>
+      <Filter>GUI</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

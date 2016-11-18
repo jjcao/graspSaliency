@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>958</width>
+    <height>518</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>600</width>
+     <width>958</width>
      <height>23</height>
     </rect>
    </property>
@@ -42,6 +42,12 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QDockWidget" name="sideBarDock">
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="SideBar" name="sideBar"/>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -55,6 +61,12 @@
    <class>Commander</class>
    <extends>QWidget</extends>
    <header location="global">commander.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SideBar</class>
+   <extends>QWidget</extends>
+   <header location="global">sidebar.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

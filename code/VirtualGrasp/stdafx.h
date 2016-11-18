@@ -8,6 +8,9 @@
 #include "ShapeAnalysis/Agent/HumanHand.h"
 extern HumanHand * hand;
 
+#include <QGLViewer/manipulatedFrame.h>
+extern ManipulatedFrame * agentManipulator;
+
 //#include "ShapeAnalysis/Agent/HumanBody.h"
 //extern HumanBody * actor;
 
@@ -18,3 +21,6 @@ extern Mesh * mesh;
 // UI classes
 #include "virtualgrasp.h"
 extern VirtualGrasp * mainWindow;
+
+#include "ShapeAnalysis/shapeanalysiswidget.h"
+extern ShapeAnalysisWidget * saWidget;

@@ -11,6 +11,8 @@ HumanHand::HumanHand()
 	this->shape = NULL;
 	this->parent = NULL;
 	this->isReflect = false;
+
+	isShowShape = true;
 }
 
 /*HumanHand & HumanHand::operator=( const HumanHand& from )

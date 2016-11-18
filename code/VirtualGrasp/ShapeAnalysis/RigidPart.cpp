@@ -1,4 +1,4 @@
-//#include "isa_headers.h"
+#include "stdafx.h"
 #include "RigidPart.h"
 #include "kdtree.h"
 #include "SimpleDraw.h"
@@ -134,7 +134,7 @@ void RigidPart::draw()
 
 	// DEBUG: draw axis
 	glColor4f(0,0,1.0f, 1);
-	//mainWindow->ui.viewer->drawAxis(2);
+	mainWindow->ui.viewer->drawAxis(2);
 
 	// Draw shape
 	shape->draw(color);

@@ -18,6 +18,7 @@ public:
 	RigidPart * parent;
 	vector<RigidPart *> child;
 	Shape * shape;
+	bool isShowShape;
 	QString name;
 	bool isReady;
 

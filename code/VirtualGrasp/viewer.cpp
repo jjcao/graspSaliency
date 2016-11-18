@@ -1,12 +1,27 @@
 #include "stdafx.h"
 #include "viewer.h"
 #include <QKeyEvent>
+#include <qfiledialog.h>
+
 using namespace std;
 
 Viewer::Viewer(QWidget *parent) : QGLViewer(parent)
 {
+	
 }
+void Viewer::updateHand()
+{
+	if (hand != NULL && hand->ready())
+	{
+		const double* dmat = manipulatedFrame()->matrix();
+		
+		float mat[16];
+		for (int i = 0; i < 16; ++i)
+			mat[i] = dmat[i];
 
+		hand->setMat(QMatrix4x4(mat).transposed());
+	}
+}
 // Draws a spiral
 void Viewer::draw()
 {
@@ -19,21 +34,29 @@ void Viewer::draw()
 	// Anti-aliasing
 	glEnable(GL_MULTISAMPLE);	
 
-	if (hand != NULL && hand->ready())
-	{		
-		hand->drawBranches();
-		//hand->draw();
-	}	
-
 	if (mesh)
 	{
 		mesh->draw();
 		//if (mesh->octree) mesh->octree->draw(0, .8, .5);
 	}
+
+	if (hand != NULL && hand->ready())
+	{		
+		//glPushMatrix();
+		//glMultMatrixd(manipulatedFrame()->matrix());//agentManipulator	
+		//updateHand();
+		hand->drawBranches();
+		if (hand->isShowShape)	hand->draw();
+		//glPopMatrix();
+	}	
 }
 
 void Viewer::init()
 {
+	// the 2 connection does not work!
+	QObject::connect(agentManipulator, SIGNAL(modified()), this, SLOT(updateHand()));
+	QObject::connect(agentManipulator, SIGNAL(manipulated()), this, SLOT(updateHand()));
+
 	// Restore previous viewer state.
 	restoreStateFromFile();
 	// Opens help window
@@ -84,6 +107,7 @@ void Viewer::init()
 	update();
 }
 
+
 void Viewer::keyPressEvent(QKeyEvent *e)
 {
 	// open and close hand
@@ -97,13 +121,79 @@ void Viewer::keyPressEvent(QKeyEvent *e)
 	}
 	if (e->key() == Qt::Key_L)
 	{
-		mainWindow->ui.commander->OpenMesh("");
+		mainWindow->ui.commander->OpenMesh(""); // strange following behavior of OpenGL is not caused by commander, the reason is unknown.
 	}
 	
 	updateGL();
 
 	// Regular behavior
 	QGLViewer::keyPressEvent(e);
+}
+void Viewer::mousePressEvent(QMouseEvent* e)
+{
+	switch (viewMode)
+	{
+	case VIEW:
+		break;
+
+	case SELECTION:
+		break;
+
+	case MODIFY:
+		if (e->button() == Qt::LeftButton && (e->modifiers() == Qt::AltModifier))
+		{
+			mouseAltPressed = true;
+			update();
+		}
+		break;
+	}
+
+	// Regular behavior
+	QGLViewer::mousePressEvent(e);
+}
+void Viewer::mouseReleaseEvent(QMouseEvent* e)
+{
+	switch (viewMode)
+	{
+	case VIEW:			break;
+	case SELECTION:		break;
+	case MODIFY:		break;
+	}
+
+	// Regular behavior
+	QGLViewer::mouseReleaseEvent(e);
+}
+
+void Viewer::mouseMoveEvent(QMouseEvent* e)
+{
+	switch (viewMode)
+	{
+	case VIEW:
+		break;
+
+	case SELECTION:
+		break;
+
+	case MODIFY:
+		break;
+	}
+
+	// Check intersection
+	if (saWidget != NULL && ((e->modifiers() == Qt::ControlModifier) ||
+		(e->modifiers() == Qt::AltModifier)))
+	{
+		if (hand != NULL && hand->ready() && !saWidget->isExperimentRunning)
+		{
+			updateHand();
+
+			int closeIt = 999;
+			hand->openAll(closeIt);
+			hand->openUntilNonCollide(mesh);
+			hand->closeUntilCollide(mesh);
+		}
+	}
+
+	QGLViewer::mouseMoveEvent(e);
 }
 QString Viewer::helpString() const
 {

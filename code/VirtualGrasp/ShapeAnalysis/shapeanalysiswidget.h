@@ -30,12 +30,12 @@ public:
 	// Interactions
 	QFrame * interactionsFrame;
 	QGridLayout * interactionsLayout;
-	QPushButton * showHand;
-	QPushButton * pressMe2;
+	QPushButton * showHand;	
+	QPushButton * showSkin;
 	QPushButton * closeHand;
-	QPushButton * openHand;
-	QPushButton * randomPos;
+	QPushButton * openHand;	
 	QPushButton * grabObj;
+	QPushButton * ungrabObj;	
 
 	// Scale control
 	QFrame * scaleFrame;
@@ -54,6 +54,9 @@ public:
 	QPushButton * startSamp;
 	QListWidget * obs;
 	QPushButton * exportSelected;
+
+	QPushButton * randomPos;
+
 	bool isExperimentRunning;
 
 	QGroupBox * featureSpaceGroupBox;
@@ -63,26 +66,25 @@ public:
 	// Rigid part properties widget
 	RigidPartWidget * rpw;
 
-	// The current working mesh
-	Mesh * mesh;
-
 public slots:
 	void showHandClicked();
+	void showHandSkinClicked();
 	void colorMesh(bool intersect);
 	void openHandClicked();
 	void closeHandClicked();
 	void randomPosClicked();
 	void closeTillCollide();
+	void openAll();
 
 	void meshScaleChanged();
 
 	void sampleMeshButtonClicked();
-	void sampleMesh(int n = 100);
+	//void sampleMesh(int n = 100);
 
-	void addObservation();
-	void readObservation();
-	void selectFirstObs();
-	void exportObservations();
+	//void addObservation();
+	//void readObservation();
+	//void selectFirstObs();
+	//void exportObservations();
 	void angleStepChanged(double newStep);
 
 signals:

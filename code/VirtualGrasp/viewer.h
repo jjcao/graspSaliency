@@ -11,11 +11,12 @@ public:
 	Viewer(QWidget *parent = 0);
 	
 	// Mouse & Keyboard stuff
-	//virtual void mousePressEvent(QMouseEvent* e);
-	//virtual void mouseReleaseEvent(QMouseEvent* e);
-	//virtual void mouseMoveEvent(QMouseEvent* e);
+	virtual void mousePressEvent(QMouseEvent* e); // no use unitll now
+	virtual void mouseReleaseEvent(QMouseEvent* e); // no use unitll now
+	virtual void mouseMoveEvent(QMouseEvent* e);
 	virtual void keyPressEvent(QKeyEvent *e);
-
+public slots:
+	void updateHand();
 protected:
 	virtual void draw();
 	virtual void init();
